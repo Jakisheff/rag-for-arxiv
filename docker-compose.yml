@@ -1,0 +1,10 @@
+services:
+  demo:
+    build:
+      context: ./demo_github_repo_health_assistant
+    env_file:
+      - ./demo_github_repo_health_assistant/.env
+    environment:
+      PYTHONUNBUFFERED: "1"
+    ports:
+      - "8000:8000"

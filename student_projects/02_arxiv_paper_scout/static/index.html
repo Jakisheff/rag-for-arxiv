@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Research Paper Scout</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">AI Engineering API Wrapper</p>
+          <h1>AI Research Paper Scout</h1>
+        </div>
+        <a class="health-link" href="/health" target="_blank" rel="noreferrer">/health</a>
+      </section>
+
+      <section class="controls" aria-label="Search controls">
+        <label>
+          <span>Query</span>
+          <input id="queryInput" type="text" value="rag" autocomplete="off" />
+        </label>
+        <label>
+          <span>Max results</span>
+          <input id="maxResultsInput" type="number" value="10" min="1" max="50" />
+        </label>
+        <div class="button-row">
+          <button id="rawButton" type="button">Fetch Raw Papers</button>
+          <button id="analyzeButton" type="button">Analyze Relevance</button>
+          <button id="reportButton" type="button">Generate LLM Report</button>
+        </div>
+      </section>
+
+      <section id="status" class="status" role="status">Ready.</section>
+
+      <section class="sort-row" aria-label="Sort papers">
+        <label for="sortSelect">Sort papers by</label>
+        <select id="sortSelect">
+          <option value="relevance">Relevance (default)</option>
+          <option value="newest">Newest first</option>
+          <option value="oldest">Oldest first</option>
+        </select>
+      </section>
+
+      <section class="cards" aria-label="Analysis summary">
+        <article class="card">
+          <span>Papers found</span>
+          <strong id="countValue">-</strong>
+        </article>
+        <article class="card">
+          <span>Average relevance</span>
+          <strong id="averageValue">-</strong>
+        </article>
+        <article class="card">
+          <span>Top score</span>
+          <strong id="topScoreValue">-</strong>
+        </article>
+        <article class="card">
+          <span>Newest paper</span>
+          <strong id="newestValue">-</strong>
+        </article>
+      </section>
+
+      <section class="panel">
+        <h2>Top keywords</h2>
+        <div id="keywordsBox" class="keywords"></div>
+      </section>
+
+      <section class="columns">
+        <article class="panel">
+          <h2>Signals</h2>
+          <ul id="signalsList" class="list"></ul>
+        </article>
+        <article class="panel">
+          <h2>Risks / limitations</h2>
+          <ul id="risksList" class="list"></ul>
+        </article>
+      </section>
+
+      <section class="panel">
+        <h2>Papers</h2>
+        <div id="papersBox" class="papers">No papers loaded yet.</div>
+      </section>
+
+      <section class="panel">
+        <h2>LLM Report</h2>
+        <pre id="reportOutput" class="report-output">No report generated yet.</pre>
+      </section>
+
+      <section class="panel">
+        <h2>Raw JSON</h2>
+        <pre id="jsonOutput" class="json-output">{}</pre>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
